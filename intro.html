@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<meta name="progressive" content="false" />
+<meta name="allow-skip" content="true" />
+
+<title>Intro to R Markdown</title>
+
+
+<!-- highlightjs -->
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+<!-- taken from https://github.com/rstudio/rmarkdown/blob/67b7f5fc779e4cfdfd0f021d3d7745b6b6e17149/inst/rmd/h/default.html#L296-L362 -->
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("section-TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+<!-- end tabsets -->
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="pageContent band">
+<div class="bandContent page">
+
+<div class="topics">
+
+<p><img src="images/phs-logo.png" width="40%" style="display: block; margin: auto 0 auto auto;" /></p>
+<div id="section-introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Welcome to an introduction to R Markdown. This course is designed as a self-led introduction to R Markdown for anyone in Public Health Scotland.</p>
+<div class="info_box">
+<h4>
+<p>Course Info</p>
+</h4>
+<ul>
+<li>
+<p>This course is built to flow through sections and build on previous knowledge. If you’re comfortable with a particular section, you can skip it.</p>
+</li>
+<li>
+<p>Some sections have multiple parts to them. Navigate the course by using the buttons at the bottom of the screen to Continue or go to the Next Topic.</p>
+</li>
+<li>
+<p>The course will also show progress through sections, a green tick will appear on sections you’ve completed, and it will remember your place if you decide to close your browser and come back later.</p>
+</li>
+</ul>
+</div>
+<p></br></p>
+<div id="section-what-is-r-markdown" class="section level3">
+<h3>What is R Markdown?</h3>
+<p>R Markdown provides an authoring framework for data science. You can use a single R Markdown file to</p>
+<ul>
+<li>save and execute code</li>
+<li>generate high quality reports that can be shared with an audience</li>
+<li>make the report reproducible</li>
+</ul>
+<p>R Markdown documents are fully reproducible and support dozens of static and dynamic output formats. This 1-minute video provides a quick tour of what’s possible with R Markdown: <img src="https://www.youtube.com/watch?v=HqrRdRrmatk" /></p>
+</div>
+<div id="section-knowledge-check" class="section level3">
+<h3>Knowledge Check</h3>
+<p><div class="panel-heading tutorial-quiz-title">Quiz</div></p>
+<div class="panel panel-default">
+<div data-label="intro-quiz-1" class="tutorial-question panel-body">
+<div id="intro-quiz-1-answer_container" class="shiny-html-output"></div>
+<div id="intro-quiz-1-message_container" class="shiny-html-output"></div>
+<div id="intro-quiz-1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
+</div>
+</div>
+<div id="section-how-it-works" class="section level2">
+<h2>How it Works</h2>
+<div id="section-open-up-an-r-markdown-file" class="section level3">
+<h3>Open up an R Markdown File</h3>
+<p>To open an R Markdown file, go to <em>File &gt; New File &gt; R Markdown</em>. Give it a title you want. For the default output format, you can choose from HTML, PDF or Word, which will be the file type you want the report to be. If you choose Word and click OK, it will look like this - a plain text file has the extension .Rmd.</p>
+<p><img src="images/r-howitworks.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-type-of-content" class="section level3">
+<h3>Type of Content</h3>
+<p>An R Markdown file contains three type of content:</p>
+<ul>
+<li><p>An (optional) YAML header surrounded by <code>---</code> s. In this section you have have information such as title, author, output format.</p></li>
+<li><p>R code chunks surrounded by <code>```</code> s. In those chunks you can have R code you write in usual time.</p></li>
+<li><p>text mixed with simple text formatting</p></li>
+</ul>
+</div>
+</div>
+<div id="section-code-chunks" class="section level2">
+<h2>Code Chunks</h2>
+<p>As mentioned in the last section R code chunks can be embedded into an R Markdown file.</p>
+<p>You can quickly insert chunks like these into your file with</p>
+<ul>
+<li>the keyboard shortcut <strong>Ctrl + Alt + I</strong> (OS X: <strong>Cmd + Option + I</strong>)</li>
+<li>the Add Chunk command in the editor toolbar or by typing the chunk delimiters <code>```{r} and ```</code>.</li>
+</ul>
+<p>When you render your .Rmd file, R Markdown will run each code chunk and embed the results beneath the code chunk in your final report.</p>
+<div id="section-chunk-options" class="section level3">
+<h3>Chunk Options</h3>
+<p>Chunk output can be customized with arguments set in the <code>{}</code> of a chunk header. These are the commonly used arguments:</p>
+<ul>
+<li><code>include = FALSE</code> prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.</li>
+<li><code>echo = FALSE</code> prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.</li>
+<li><code>message = FALSE</code> prevents messages that are generated by code from appearing in the finished file.</li>
+<li><code>warning = FALSE</code> prevents warnings that are generated by code from appearing in the finished.</li>
+<li><code>fig.cap = "..."</code> adds a caption to graphical results.</li>
+</ul>
+</div>
+<div id="section-global-options" class="section level3">
+<h3>Global Options</h3>
+<p>To set global options that apply to every chunk in your file, call <code>knitr::opts_chunk$set</code> in a code chunk. Knitr will treat each option that you pass to <code>knitr::opts_chunk$set</code> as a global default, however this can also be overwritten in individual chunk headers.</p>
+</div>
+</div>
+<div id="section-inline-code" class="section level2">
+<h2>Inline Code</h2>
+<p>Sometimes you may want to calculate a figure (e.g. number of cases) using R code and embed this figure in a paragraph. So code results can be inserted directly into the text by enclosing the code with <code>`r `</code>.</p>
+<p>Here is an example by using Borders(Age) dataset to calculate number of cases according to gender:</p>
+<p><img src="images/r-inlinecode.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Gender is a parameter which will be discussed in the next chapter. As you can see the number of cases is calculated and assigned to “cases”. Then it is called in the statement “There are <code>`r cases`</code> records in the dataset”. This makes the report reproducible as when the dataset is updated this figure will always be re-calculated automatically.</p>
+<p>R Markdown will always</p>
+<ul>
+<li>display the results of inline code, but not the code</li>
+<li>apply relevant text formatting to the results</li>
+</ul>
+<p>As a result, inline output is indistinguishable from the surrounding text. Inline expressions do not take knitr options.</p>
+</div>
+<div id="section-parameters" class="section level2">
+<h2>Parameters</h2>
+<p>R Markdown documents can include one or more parameters whose values can be set when you render the report. This creates convenience when you want to quickly create the same report with distinct values for various key inputs, such as</p>
+<ul>
+<li><p>Running a report specific to a department or geographic region (e.g. Health Board).</p></li>
+<li><p>Running a report that covers a specific period in time.</p></li>
+<li><p>Running multiple versions of a report for distinct sets of core assumptions.</p></li>
+</ul>
+<p>Here is an example of producing a data report using Borders(Age) dataset. We can quickly generate the report based on selecting male or female.</p>
+<p><img src="images/r-parameters.png" width="100%" style="display: block; margin: auto;" /><img src="images/r-parameters-word.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="section-declaring-parameters" class="section level3">
+<h3>Declaring Parameters</h3>
+<p>Parameters are declared using the params field within the YAML header of the document. The example above creates the parameter data and assigns it with the label “Gender” and default value “Male”.</p>
+</div>
+<div id="section-using-parameters-in-code" class="section level3">
+<h3>Using Parameters in Code</h3>
+<p>To access a parameter in code, call <code>params$&lt;parameter name&gt;</code>. The example above used <code>sum(Borders_age$Sex == params$gender, na.rm = TRUE)</code> to calculate the number of cases based on the gender selected.</p>
+</div>
+<div id="section-knit-with-parameters" class="section level3">
+<h3>Knit with Parameters</h3>
+<p>To produce the report with parameters, simply click the “Knit with Parameters” option in the dropdown menu next to the RStudio knit button to set parameters.</p>
+<p><img src="images/r-parameters-knit.png" width="70%" style="display: block; margin: auto;" /><img src="images/r-parameters-knit2.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-tables" class="section level2">
+<h2>Tables</h2>
+<p>Sometimes you would like to embed tables such as data tables in your report. Generally using <code>knitr::kable</code> function or the package flextable are the good ways to present tables with additional formatting.</p>
+<div id="section-using-kable-function" class="section level3">
+<h3>Using Kable Function</h3>
+<p>Here is an example of showing the first 5 rows in the Borders(Age) dataset by selecting a gender:</p>
+<p><img src="images/r-tables-kable1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The table is displayed like this:</p>
+<p><img src="images/r-tables-kable2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-using-flextable" class="section level3">
+<h3>Using Flextable</h3>
+<p>A package called flextable provides more options for table formatting such as alignment and filled colour of cells. Here is an example of displaying the above table with more fancy formatting (officer package is used for adding border lines):</p>
+<p><img src="images/r-tables-flextable1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The table is displayed with more features like this:</p>
+<p><img src="images/r-tables-flextable2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-markdown-basics" class="section level2">
+<h2>Markdown Basics</h2>
+<div id="section-format-text" class="section level3">
+<h3>Format Text</h3>
+<p>You can format the text in your R Markdown file with <a href="https://rmarkdown.rstudio.com/authoring_pandoc_markdown.html">Pandoc’s Markdown</a>, a set of markup annotations for plain text files. For example, using ** at the beginning and end of a statement to make it bold. More about the format text please refer to the <a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf?_ga=2.84009817.1909559413.1615196547-221181954.1612528976">R Markdown Cheatsheet</a>.</p>
+</div>
+<div id="section-visual-markdown-editor" class="section level3">
+<h3>Visual Markdown Editor</h3>
+<p>In the latest version of RStudio you can also edit the text format by switching to visual markdown editor mode. It has user friendly interface to edit the text in the document, just like MS Word. Click “A” on the toolbar to switch. You can come back to the source editor by pressing the same button and see the source code contain the changes you just edited.</p>
+<p><img src="images/r-markdowneditor.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-output-formats" class="section level2">
+<h2>Output Formats</h2>
+<p>As mentioned earlier when render the document you can choose to knit to different formats such as HTML, PDF, MS Word. You can define it in YAML and also do it by clicking the dropdown menu next to the knit button:</p>
+<p><img src="images/r-outputformats.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>There are a range of output formats available to use with R Markdown:</p>
+<p>Documents</p>
+<ul>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/notebook.html">html_notebook</a> - Interactive R Notebooks</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/html-document.html">html_document</a> - HTML document w/ Bootstrap CSS</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/pdf-document.html">pdf_document</a> - PDF document (via LaTeX template)</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/word-document.html">word_document</a> - Microsoft Word document (docx)</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/markdown-document.html">md_document</a> - Markdown document (various flavors)</p></li>
+</ul>
+<p>Presentations (Slides)</p>
+<ul>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html">ioslides_presentation</a> - HTML presentation with ioslide</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html">powerpoint_presentation</a>: PowerPoint presentation</p></li>
+</ul>
+<p>More</p>
+<ul>
+<li><p><a href="https://rmarkdown.rstudio.com/flexdashboard/">flexdashboard::flex_dashboard</a> - Interactive dashboards</p></li>
+<li><p><a href="https://bookdown.org/yihui/rmarkdown/r-package-vignette.html">html_vignette</a> - R package vignette (HTML)</p></li>
+<li><p><a href="https://rmarkdown.rstudio.com/github_document_format.html">github_document</a> - GitHub Flavored Markdown document</p></li>
+</ul>
+</div>
+<div id="section-phs-publication-template" class="section level2">
+<h2>PHS Publication Template</h2>
+<p>Public Health Scotland (PHS) has R Markdown templates for publication summary and report. You can find it at <a href="https://github.com/Public-Health-Scotland/National-Stats-Template">PHS GitHub repository</a> with instructions. They have also been included in the <a href="https://github.com/Public-Health-Scotland/phstemplates">phstemplates</a> package.</p>
+</div>
+<div id="section-cheatsheets" class="section level2">
+<h2>Cheatsheets</h2>
+<p>Use the cheatsheets that are built into the RStudio IDE to jog your memory about R Markdown.</p>
+<p><img src="images/r-cheatsheet1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Go to <em>Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet</em> to open the main <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf">R Markdown cheatsheet</a>, pictured above.</p>
+<p><img src="images/r-cheatsheet2.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>Go to <em>Help &gt; Markdown Quick Reference</em> to open the <em>Markdown Quick Reference</em> in your help pane.</p>
+<p><img src="images/r-cheatsheet3.png" width="100%" style="display: block; margin: auto;" /></p>
+
+<script type="application/shiny-prerendered" data-context="server-start">
+# Author: 
+# Original Date: 
+# Version of R: 
+
+# See here for learnr package documentation: https://rstudio.github.io/learnr/
+
+# Include packages here that are required throughout the training
+library(learnr)         # Required to build the Shiny app
+# library(gradethis)      # Required for specific code checking and specific feedback
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# tutorial_options(
+#   exercise.checker = gradethis::grade_learnr
+# )
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+session$onSessionEnded(function() {
+        learnr:::session_stop_event(session)
+      })
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "intro-quiz-1",     question = structure("Which of the following can R Markdown do?", html = TRUE, class = c("html",     "character")), answers = list(structure(list(id = "lnr_ans_cb49c00",         option = "Generate reproducible reports", value = "Generate reproducible reports",         label = structure("Generate reproducible reports", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d28bacd",         option = "Produce slides, dashboards, webpages, books",         value = "Produce slides, dashboards, webpages, books",         label = structure("Produce slides, dashboards, webpages, books", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c7173b",         option = "Embed code chunks to save and execute code",         value = "Embed code chunks to save and execute code",         label = structure("Embed code chunks to save and execute code", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Not quite, have another go!", html = TRUE, class = c("html",     "character")), incorrect = structure("Not quite, have another go!", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "intro-quiz-1-answer", question = "intro-quiz-1"),     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following can R Markdown do?\n<br/><br/><br/>", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 1848252020.13934, options = list()), class = c("learnr_checkbox", "tutorial_question")))
+</script>
+ <!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["header-attrs"]},{"type":"character","attributes":{},"value":["2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pandoc"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["header-attrs.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["navigation"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/navigation-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tabsets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["9.12.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["default.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["5.1.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/fontawesome"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/all.css","css/v4-shims.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["2.6"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["idb-keyvalue"]},{"type":"character","attributes":{},"value":["3.2.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/idb-keyval"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["idb-keyval-iife-compat.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.10.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.10.1"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]}},"value":[{"type":"character","attributes":{},"value":["backports","base","checkmate","compiler","datasets","digest","ellipsis","evaluate","fastmap","graphics","grDevices","highr","htmltools","htmlwidgets","httpuv","jsonlite","knitr","later","learnr","lifecycle","magrittr","markdown","methods","mime","promises","R6","Rcpp","rlang","rmarkdown","rprojroot","shiny","stats","stringi","stringr","tools","utils","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["1.2.1","3.6.1","2.0.0","3.6.1","3.6.1","0.6.27","0.3.1","0.14","1.1.0","3.6.1","3.6.1","0.8","0.5.1.1","1.5.3","1.5.5","1.7.2","1.31","1.1.0.1","0.10.1","0.2.0","2.0.1","1.1","3.6.1","0.9","1.1.1","2.5.0","1.0.6","0.4.10","2.6","2.0.2","1.6.0","3.6.1","1.5.3","1.4.0","3.6.1","3.6.1","2.4.1","0.20","1.8-4","2.2.1"]}]}]}
+</script>
+<!--/html_preserve-->
+</div>
+
+</div> <!-- topics -->
+
+<div class="topicsContainer">
+<div class="topicsPositioner">
+<div class="band">
+<div class="bandContent topicsListContainer">
+
+<!-- begin doc-metadata -->
+<div id="doc-metadata">
+<h2 class="title toc-ignore" style="display:none;">Intro to R Markdown</h2>
+</div>
+<!-- end doc-metadata -->
+
+</div> <!-- bandContent.topicsListContainer -->
+</div> <!-- band -->
+</div> <!-- topicsPositioner -->
+</div> <!-- topicsContainer -->
+
+
+</div> <!-- bandContent page -->
+</div> <!-- pageContent band -->
+
+
+
+
+<script>
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+
+</body>
+
+</html>
