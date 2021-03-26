@@ -9,9 +9,9 @@ runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
-# Author: 
-# Original Date: 
-# Version of R: 
+# Author: Tina Fu
+# Original Date: March 2021
+# Version of R: 3.6.1
 
 # See here for learnr package documentation: https://rstudio.github.io/learnr/
 
