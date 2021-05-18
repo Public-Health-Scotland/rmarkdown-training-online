@@ -1,21 +1,23 @@
-# PHS R Markdown Training Online
+# PHS Online R Markdown Training
 
-*Interactive web-application branded for Public Health Scotland.*
+*Interactive web-application to learn R Markdown, for employees in Public Health Scotland.*
 
-This is an introduction guidance to R Markdown from the basics, including how it works, embedding code chunks, formatting tables, PHS publication template and so on.
+This is an introduction to R Markdown from the basics, including how it works, embedded code chunks, formatting tables, the PHS publication template and so on.
 
 ### Directories
-  As this is a shiny prerendered project, only certain filenames are accessible from within the app. These are outlined below:
+
+As this is a shiny prerendered project, only certain filenames are accessible from within the app. These are outlined below:
   * `css` - css styling scripts
   * `images` - images used within the app
   * `www` - other accessible static files
     + `data` - data files made available for use as part of the app
     
 ### Files
+
   * `.gitignore` - tells git what files and folders *not* to track or upload to GitHub
-  * `Intro.Rmd` - RMarkdown file containing all necessary code to build app
-  * `Intro.html` - generated HTML from building app
-  * `PHS-LearnR.Proj` - R project
+  * `intro.Rmd` - RMarkdown file containing all necessary code to build app
+  * `intro.html` - generated HTML from building app
+  * `rmarkdown-training-online.Rproj` - R project
   * `README.md` - this page
 
 
