@@ -2,23 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 body, h1, h2, h3, h4, h5, h6, p, button {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans' !important
 }
 
 h1, h2 {
-  color: #433683;
+  color: #433683 !important
 }
 
 h3, h4, h5 {
-  color: #bd27b9;
+  color: #bd27b9 !important
 }
 
 code {
-  font-family: 'Source Code Pro';
+  font-family: 'Source Code Pro' !important
 }
 
 th {
-  color: #433683;
+  color: #433683 !important
 }
 
 .panel-heading {
