@@ -213,7 +213,7 @@ summary(cars)
 
 Sometimes you may want to calculate a figure (e.g. number of cases) using R code and embed this figure in a paragraph. So code results can be inserted directly into the text by enclosing the code with `` `r ` ``.
 
-Here is an example by using Borders(Age) dataset to calculate number of records according to gender:
+Here is an example by using borders_inc_age dataset (download  [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/raw/master/data/borders_inc_age.csv)) to calculate number of records according to gender:
 
 ````
 ---
@@ -235,7 +235,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, error = FA
 
 borders_age <- read_csv("data/BORDERS (inc Age).csv")
 
-data_gender <- Borders_age %>% filter(Sex == params$gender)
+data_gender <- borders_age %>% filter(Sex == params$gender)
 ```
 
 ## Summary of Data
@@ -290,7 +290,7 @@ params:
 
 ### Using Parameters in Code
 
-To access a parameter in code, call `params$<parameter name>`. The example above used `sum(Borders_age$Sex == params$gender, na.rm = TRUE)` to calculate the number of records based on the gender selected.
+To access a parameter in code, call `params$<parameter name>`. The example above used `sum(borders_age$Sex == params$gender, na.rm = TRUE)` to calculate the number of records based on the gender selected.
 
 ### Knit with Parameters
 
