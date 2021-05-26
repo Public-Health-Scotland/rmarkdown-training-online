@@ -9,8 +9,7 @@ This is an introduction to R Markdown from the basics, including how it works, e
 As this is a shiny prerendered project, only certain filenames are accessible from within the app. These are outlined below:
   * `css` - css styling scripts
   * `images` - images used within the app
-  * `www` - other accessible static files
-    + `data` - data files made available for use as part of the app
+  * `data` - data files made available for use as part of the app
     
 ### Files
 
