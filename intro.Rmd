@@ -213,7 +213,7 @@ summary(cars)
 
 Sometimes you may want to calculate a figure (e.g. number of cases) using R code and embed this figure in a paragraph. So code results can be inserted directly into the text by enclosing the code with `` `r ` ``.
 
-Here is an example by using borders_inc_age dataset (click link  [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/raw/master/data/borders_inc_age.csv) and go to menu More tools - Save page as in Microsoft Edge browser) to calculate number of records according to gender:
+Here is an example by using borders_inc_age dataset (to download, click link [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/raw/master/data/borders_inc_age.csv) and go to menu More tools - Save page as in Microsoft Edge browser) to calculate number of records according to gender:
 
 ````
 ---
