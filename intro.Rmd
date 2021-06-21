@@ -233,7 +233,7 @@ library(readr)
 
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
 
-borders_age <- read_csv("data/BORDERS (inc Age).csv")
+borders_age <- read_csv("data/borders_inc_age.csv")
 
 data_gender <- borders_age %>% filter(Sex == params$gender)
 ```
