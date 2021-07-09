@@ -531,7 +531,7 @@ Create a table for the number of records split by ManagementofPatient using kabl
 *	Border around each cell with line colour “#000000”.
 * Set the column width to 1.57 inches.
 
-You can download the R Markdown exercise files [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/tree/master/data). Please fill your code into the places with capital words. You can see the answers in "exercise-answer.Rmd".
+You can download the R Markdown exercise files [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/tree/master/exercise). Please fill your code into the places with capital words. You can see the answers in "exercise-answer.Rmd".
 
 After knitting the report will look like this (assuming Ayrshire & Arran is selected for the parameter): 
 
