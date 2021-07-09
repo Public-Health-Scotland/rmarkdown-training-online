@@ -1,0 +1,82 @@
+---
+title: "Data Report"
+output: word_document
+params:
+  hbres: 
+    label: "Heath board of residence"
+    value: "Ayrshire & Arran"
+    input: select
+    choices: ["Ayrshire & Arran", "Borders", "Fife"]
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(readr)
+
+# Set up global chunk options.
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
+
+# Read in the dataset. Change the file path if you save the data somewhere else.
+borders_age <- read_csv("data/borders_inc_age.csv")
+
+# Filter the data according to the parameter.
+data_hbres <- borders_age %>% filter(HBRes == params$hbres)
+```
+
+## Summary of Data
+
+```{r numberofcases}
+cases <- sum(borders_age$HBRes == params$hbres, na.rm = TRUE)
+```
+
+```{r lengthofstay}
+ave_los <- mean(data_hbres$LengthOfStay)
+```
+
+* There are **`r cases`** records in the dataset.
+
+* The average length of stay is *`r ave_los`*.
+
+<br>
+
+## Number of Records split by Mangement of Patient (Kable)
+
+```{r mop_kable}
+library(knitr)
+data_hbres_table <- data_hbres %>% count(ManagementofPatient)
+kable(data_hbres_table)
+```
+
+<br>
+
+## Number of Records split by Mangement of Patient (Flextable)
+
+<br>
+
+```{r mop_flextable}
+library(flextable)
+library(officer)
+
+data_hbres_table <- data_hbres %>% count(ManagementofPatient)
+
+# Set up some formatting for flextable to be applied to most tables
+my_ft_format <- function(ft) {
+  ft %>% 
+    bold(part = "header") %>% 
+    bg(bg = "#964091", part = "header") %>% 
+    color(color = "white", part = "header") %>% 
+    align(align = "center", part = "header") %>% 
+    valign(valign = "center", part = "all") %>% 
+    padding(padding.top = 0, padding.bottom = 0, part = "all")
+}
+
+headings <- list("Management of Patient", "Number of Records")
+names(headings) <- names(data_hbres_table)
+
+flextable(data_hbres_table, theme_fun = NULL) %>% 
+  my_ft_format() %>% 
+  set_header_labels(values = headings) %>% 
+  align(align = "left", part = "body") %>% 
+  border(border = fp_border_default(color = "#000000"), part = "all") %>% 
+  width(width = 1.57)
+```

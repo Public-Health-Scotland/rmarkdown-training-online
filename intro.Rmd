@@ -231,10 +231,13 @@ params:
 library(dplyr)
 library(readr)
 
+# Set up global chunk options.
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, error = FALSE)
 
+# Read in the dataset. Change the file path if you save the data somewhere else.
 borders_age <- read_csv("data/borders_inc_age.csv")
 
+# Filter the data according to the parameter.
 data_gender <- borders_age %>% filter(Sex == params$gender)
 ```
 
@@ -251,6 +254,8 @@ There are `r "\u0060r cases\u0060"` records in the dataset.
 ```{r inlinecode, fig.align='center', out.width="100%"}
 knitr::include_graphics("images/r-inlinecode.png")
 ```
+
+<br>
 
 R Markdown will always
 
@@ -307,14 +312,18 @@ Sometimes you would like to embed tables such as data tables in your report. Gen
 
 ### Using Kable Function
 
-Continue with the example in the section [Inline Code](#inlinecode), you can add the following code to show the first 5 rows in the Borders(Age) dataset after selecting a gender:
+Continue with the example in the section [Inline Code](#inlinecode), you can add the following code to show the first 5 rows in the dataset after selecting a gender:
 
 ````
 ## Including Tables
 
 ```{r bordersage_table}`r ''`
 library(knitr)
+
+# Keep some columns needed.
 data_gender_table <- data_gender %>% select(URI, HospitalCode, Sex)
+
+# Using kable function to create a table.
 kable(data_gender_table[1:5, ])
 ```
 ````
@@ -335,27 +344,30 @@ A package called flextable provides more options for table formatting such as al
 ```{r bordersage_flextable, ft.align = "left"}`r ''`
 library(flextable)
 library(officer)
+
+# Keep some columns needed.
 data_gender_table <- data_gender %>% select(URI, HospitalCode, Sex)
 
 # Set up some formatting for flextable to be applied to most tables
 my_ft_format <- function(ft) {
   ft %>% 
-    bold(part = "header") %>% 
-    bg(bg = "#964091", part = "header") %>% 
-    color(color = "white", part = "header") %>% 
-    align(align = "center", part = "header") %>% 
-    valign(valign = "center", part = "all") %>% 
-    padding(padding.top = 0, padding.bottom = 0, part = "all")
+    bold(part = "header") %>%  # Make the header text as bold.
+    bg(bg = "#964091", part = "header") %>%  # Set the filled colour of header.
+    color(color = "white", part = "header") %>%  # Set the text colour of header.
+    align(align = "center", part = "header") %>%  # Make the header text centralised.
+    valign(valign = "center", part = "all") %>%  # Make all text vertically centralised.
+    padding(padding.top = 0, padding.bottom = 0, part = "all")  # No paddings at top or bottom.
 }
 
+# Set the column headers.
 headings <- list("URI", "Hospital Code", "Sex")
 names(headings) <- names(data_gender_table)
 
 flextable(data_gender_table[1:5, ], theme_fun = NULL) %>% 
   my_ft_format() %>% 
   set_header_labels(values = headings) %>% 
-  border_outer(border = fp_border()) %>% 
-  border(j = c(1, 2, 3), border.right = fp_border(), part = "all") 
+  border_outer(border = fp_border()) %>%  # Set the outside border line.
+  border(j = c(1, 2, 3), border.right = fp_border(), part = "all")  # Set the right border line.
 ```
 ````
 
@@ -499,6 +511,34 @@ question("Which output format can R Markdown commonly produce?",
         allow_retry = TRUE,
         random_answer_order = TRUE
   )
+```
+
+## Exercises
+
+Now let's apply our knowledge and do some exercises! We are going to create a data report using borders_inc_age. 
+
+**Exercise 1:**
+
+Set a parameter for HBRes with selections Ayrshire & Arran, Borders and Fife. Calculate number of records and average length of stay – split them into 2 bullet points. Make number of records as bold and length of stay as italic.
+
+**Exercise 2:**
+
+Create a table for the number of records split by ManagementofPatient using kable. Also format the table using flextable with the following features:
+
+* Table header text is bold and colour as white. Text is centralised. The background colour is “#964091”. 
+*	Table body is aligned to the left. 
+* All text is vertically centralised.
+*	Border around each cell with line colour “#000000”.
+* Set the column width to 1.57 inches.
+
+You can download the R Markdown exercise files [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/tree/master/data). Please fill your code into the places with capital words. You can see the answers in "exercise-answer.Rmd".
+
+After knitting the report will look like this (assuming Ayrshire & Arran is selected for the parameter): 
+
+<br>
+
+```{r exercise, fig.align='center', out.width="100%"}
+knitr::include_graphics("images/r-exercise.png")
 ```
 
 ## Feedback

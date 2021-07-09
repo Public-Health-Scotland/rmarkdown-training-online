@@ -1,0 +1,39 @@
+---
+title: "Data Report"
+output: word_document
+params:
+  hbres: 
+    label: ASSIGN A LABEL
+    value: ASSIGN THE DEFAULT VALUE
+    input: select
+    choices: OPTIONS FOR THE PARAMETER
+---
+
+```{r setup, PLEASE PREVENT CODE AND RESULTS FROM APPEARING FOR THIS CHUNK}
+# Load packages needed
+library(dplyr)
+library(readr)
+
+# Set up global chunk options.
+knitr::opts_chunk$set(PLEASE PREVENT CODE, WARNING, MESSAGE AND ERROR FROM APPEARING)
+
+# Read in the dataset. Change the file path if you save the data somewhere else.
+borders_age <- read_csv("data/borders_inc_age.csv")
+
+# Filter the data according to the parameter.
+data_hbres <- borders_age %>% filter(FILTER THE DATA BASED ON THE PARAMETER YOU CHOOSE)
+```
+
+## Summary of Data
+
+```{r numberofcases}
+cases <- sum(COUNT THE RECORD WHEN HEALTH BOARD OF RESIDENCE EQUALS THE PARAMETER VALUE, na.rm = TRUE)
+```
+
+```{r lengthofstay}
+ave_los <- mean(CALCULATE LENGTH OF STAY USING data_hbres CREATED ABOVE)
+```
+
+* There are INSERT INLINE CODE records in the dataset.
+
+* The average length of stay is INSERT INLINE CODE.
