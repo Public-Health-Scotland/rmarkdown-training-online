@@ -515,25 +515,25 @@ question("Which output format can R Markdown commonly produce?",
 
 ## Exercises
 
-Now let's apply our knowledge and do some exercises! We are going to create a data report using borders_inc_age. 
+Now let's apply our knowledge and do some exercises! We are going to create a data report using the borders_inc_age dataset. You can download the R Markdown exercise files [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/tree/master/exercise). Please fill your code into the places with capital words. You can see a modal answer in "exercise-answer.Rmd".
 
-**Exercise 1:**
+**Exercise 1 (parameters):**
 
-Set a parameter for HBRes with selections Ayrshire & Arran, Borders and Fife. Calculate number of records and average length of stay – split them into 2 bullet points. Make number of records as bold and length of stay as italic.
+1. Set a parameter for `HBRes` with selections 'Ayrshire & Arran', 'Borders' and 'Fife'. 
+2. Calculate the number of records and average length of stay – split them into 2 bullet points. 
+3. Make the number of records as bold and length of stay as italic.
 
-**Exercise 2:**
+**Exercise 2 (tables):**
 
-Create a table for the number of records split by ManagementofPatient using kable. Also format the table using flextable with the following features:
+Create a table for the number of records split by `ManagementofPatient` using the kable package. Also, format the table using the flextable pacakge with the following features:
 
 * Table header text is bold and colour as white. Text is centralised. The background colour is “#964091”. 
-*	Table body is aligned to the left. 
+* Table body is aligned to the left. 
 * All text is vertically centralised.
-*	Border around each cell with line colour “#000000”.
+* Border around each cell with line colour “#000000”.
 * Set the column width to 1.57 inches.
 
-You can download the R Markdown exercise files [here](https://github.com/Public-Health-Scotland/rmarkdown-training-online/tree/master/exercise). Please fill your code into the places with capital words. You can see the answers in "exercise-answer.Rmd".
-
-After knitting the report will look like this (assuming Ayrshire & Arran is selected for the parameter): 
+After knitting the report will look like this (assuming 'Ayrshire & Arran' is selected for the parameter): 
 
 <br>
 
