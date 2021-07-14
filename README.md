@@ -10,6 +10,7 @@ As this is a shiny prerendered project, only certain filenames are accessible fr
   * `css` - css styling scripts
   * `images` - images used within the app
   * `data` - data files made available for use as part of the app
+  * `exercise` - questions and answers for exercise
     
 ### Files
 
