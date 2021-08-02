@@ -157,7 +157,7 @@ kable(formattext, align = "c", booktabs = TRUE) %>%
   kable_styling("striped")
 ```
 
-More about the format text please refer to the [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf?_ga=2.84009817.1909559413.1615196547-221181954.1612528976).
+More about the format text please refer to the [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
 
 ### Visual Markdown Editor
 
